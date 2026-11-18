@@ -1,0 +1,59 @@
+{
+  "specId": "AIMS-SPEC-002",
+  "engineName": "aims-engine",
+  "version": "0.2.0",
+  "verifiedAt": "2026-11-18T11:09:00+09:00",
+  "toolchain": {
+    "cargo": "1.98.1",
+    "rustc": "1.98.1",
+    "target": "x86_64-pc-windows-msvc"
+  },
+  "dependencyAudit": {
+    "externalCratesCount": 0,
+    "runtimeStandardLibraryOnly": true,
+    "externalApiCallsRequired": false,
+    "manifestDependenciesSection": "[dependencies] (empty)"
+  },
+  "releaseBinary": {
+    "path": "releases/aims-engine.exe",
+    "sizeBytes": 562688,
+    "sha256": "964b1a93d2112cc1346cbe1d281f4fb74fc8145174990206426355908d740331",
+    "buildProfile": {
+      "optLevel": 3,
+      "lto": true,
+      "codegenUnits": 1,
+      "panic": "abort",
+      "strip": "symbols",
+      "coffSymbolTableEntries": 0
+    }
+  },
+  "unitAndIntegrationTests": {
+    "total": 9,
+    "passed": 9,
+    "failed": 0,
+    "ignored": 0,
+    "durationSeconds": 19.7,
+    "testCases": [
+      "tests::test_healthy_no_op",
+      "tests::test_escalation_stage1_to_stage2_high_mlp",
+      "tests::test_escalation_to_stage3_dqhm_clean_reinstall",
+      "tests::test_sha256_nist_vector",
+      "tests::test_dqhm_recall_immutability_and_append_only_logs",
+      "tests::test_judge_rejects_forbidden_action_and_protected_path",
+      "tests::test_isolated_self_healing",
+      "tests::test_stage1_light_mlp_repair",
+      "tests::test_stage4_safe_halt_when_unrecoverable"
+    ]
+  },
+  "zeroLeakageAudit": {
+    "prohibitedExtensions": [
+      ".rs",
+      ".db",
+      ".env"
+    ],
+    "prohibitedExtensionsFound": 0,
+    "binaryDataSectionNgWordsFound": 0,
+    "binaryPrintableStringsNgWordsFound": 0,
+    "note": "全データセクション(.rdata/.data)内の印字可能ASCII/UTF-16LE文字列および全テキストファイルを対象にNGワード0件を検証"
+  }
+}

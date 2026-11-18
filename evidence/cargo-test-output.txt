@@ -1,0 +1,27 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running unittests src\lib.rs (target\debug\deps\aims_engine-868ff68ff850eaaa.exe)
+
+running 9 tests
+test tests::test_healthy_no_op ... ok
+test tests::test_escalation_stage1_to_stage2_high_mlp ... ok
+test tests::test_escalation_to_stage3_dqhm_clean_reinstall ... ok
+test tests::test_sha256_nist_vector ... ok
+test tests::test_dqhm_recall_immutability_and_append_only_logs ... ok
+test tests::test_judge_rejects_forbidden_action_and_protected_path ... ok
+test tests::test_isolated_self_healing ... ok
+test tests::test_stage1_light_mlp_repair ... ok
+test tests::test_stage4_safe_halt_when_unrecoverable ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 19.70s
+
+     Running unittests src\main.rs (target\debug\deps\aims_engine-04fc8dd37ab2d78c.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests aims_engine
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

@@ -1,0 +1,65 @@
+{
+  "specId": "AIMS-SPEC-002",
+  "targetSystem": "enterprise-web-app",
+  "maxRetriesPerStage": 2,
+  "maxRunsPerDay": 6,
+  "walThresholdBytes": 16777216,
+  "logRetentionHours": 48,
+  "protectedPaths": [
+    "prisma/schema.prisma",
+    "prisma/migrations",
+    "lib/auth.ts",
+    "lib/http-auth.ts",
+    "lib/request-security.ts",
+    "lib/domain.ts",
+    "tests",
+    "config/aims-criteria.sample.json"
+  ],
+  "preserveRowCountTables": [
+    "User",
+    "Role",
+    "Schedule",
+    "Report",
+    "Asset",
+    "Document",
+    "AuthAccount",
+    "AdminCredential"
+  ],
+  "requiredPaths": [
+    "package.json",
+    "prisma/schema.prisma",
+    "lib/auth.ts",
+    "lib/service.ts",
+    ".next/standalone/server.js",
+    ".next/standalone/public",
+    ".next/standalone/assets/fonts",
+    ".next/standalone/.next/static"
+  ],
+  "stageAllowedActions": {
+    "stage1": [
+      "NoOp",
+      "FlushWalCheckpoint",
+      "CleanExpiredLogsAndTemp",
+      "LightCombinedCleanup"
+    ],
+    "stage2": [
+      "RestartAppService",
+      "DatabaseOptimizeAndBackup",
+      "SyncStandaloneAssets",
+      "ServiceAndProxyRecovery"
+    ],
+    "stage3": [
+      "DqhmCleanRebuild"
+    ],
+    "stage4": [
+      "SafeHaltWithReport"
+    ]
+  },
+  "forbiddenOperations": [
+    "delete_business_rows",
+    "modify_schema",
+    "modify_auth_logic",
+    "modify_tests",
+    "modify_criteria"
+  ]
+}
